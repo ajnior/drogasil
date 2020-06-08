@@ -6,13 +6,13 @@ export const colors = {
   rdCoral: '#FE9481',
   rdYellow: '#FCDA92',
   rdPurple: '#9C8CB9',
-  rdHeaderBorder: '#E0E0E0',
+  rdLightGray: '#E0E0E0',
   rdDarkGray: '#3c3c3c',
 };
 
 export const screenSizes = {
-  tablet: 768,
-  desktop: 769,
+  tablet: '768px',
+  desktop: '769px',
 };
 
 export const shadows = {
