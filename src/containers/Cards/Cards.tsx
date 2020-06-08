@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import { ThemeContext } from '../../contexts/ThemeContext';
 
@@ -14,10 +14,26 @@ function Card() {
   const [desktopCardState, setDesktopCardState] = useState<boolean>(false);
   const [tabletCardState, setTabletCardState] = useState<boolean>(false);
   const [mobileCardState, setMobileCardState] = useState<boolean>(false);
+  const { theme, setTheme } = useContext(ThemeContext);
 
-  const { setTheme } = useContext(ThemeContext);
-  const theme = mobileCardState ? 'dark' : 'light';
-  if (setTheme) setTheme(theme);
+  function handleDesktopCard(): void {
+    setDesktopCardState(!desktopCardState);
+  }
+
+  function handleTabletCard(): void {
+    setTabletCardState(!tabletCardState);
+  }
+
+  function handleMobileCard(): void {
+    if (setTheme) {
+      setTheme(mobileCardState ? 'dark' : 'light');
+      setMobileCardState(!mobileCardState);
+    }
+  }
+
+  useEffect(() => {
+    setTheme && setTheme(mobileCardState ? 'dark' : 'light');
+  }, [theme, setTheme, mobileCardState]);
 
   const cardList = [
     {
@@ -32,7 +48,7 @@ function Card() {
         backgroundColor: colors.rdCoral,
       },
       buttonState: desktopCardState,
-      buttonDispatch: setDesktopCardState,
+      buttonDispatch: handleDesktopCard,
     },
     {
       id: 1,
@@ -46,7 +62,7 @@ function Card() {
         backgroundColor: colors.rdYellow,
       },
       buttonState: tabletCardState,
-      buttonDispatch: setTabletCardState,
+      buttonDispatch: handleTabletCard,
     },
     {
       id: 2,
@@ -57,10 +73,10 @@ function Card() {
       buttonLabel: 'Alterar tema...',
       buttonColorScheme: {
         color: colors.white,
-        backgroundColor: colors.rdYellow,
+        backgroundColor: colors.rdPurple,
       },
       buttonState: mobileCardState,
-      buttonDispatch: setMobileCardState,
+      buttonDispatch: handleMobileCard,
     },
   ];
 
@@ -79,7 +95,7 @@ function Card() {
     );
   });
 
-  return <div>{mapDispatchToCards}</div>;
+  return <>{mapDispatchToCards}</>;
 }
 
 export default Card;

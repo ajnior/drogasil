@@ -1,5 +1,6 @@
 /* eslint-disable eqeqeq */
 import React from 'react';
+import { Container } from './Card.styles';
 
 type ButtonColorScheme = {
   color: string;
@@ -17,7 +18,7 @@ type Props = {
   buttonLabel: string;
   buttonColorScheme: ButtonColorScheme;
   buttonState: boolean | Theme;
-  buttonDispatch: Dispatch;
+  buttonDispatch(): void;
 };
 
 function Card({
@@ -29,12 +30,13 @@ function Card({
   buttonState,
   buttonDispatch,
 }: Props) {
-  function handleClick(): void {
-    buttonDispatch(!buttonState);
-  }
-
+  console.log(buttonColorScheme);
   return (
-    <div className="card">
+    <Container
+      className="card"
+      color={buttonColorScheme.color}
+      backgroundColor={buttonColorScheme.backgroundColor}
+    >
       <div className="card__media">
         <img src={imageSrc} alt="Card" />
         <h3> {imageLabel}</h3>
@@ -42,10 +44,10 @@ function Card({
       <div className="card__text">
         <p>{cardText}</p>
       </div>
-      <div className="card__button" onClick={handleClick}>
-        <button>{buttonLabel}</button>
+      <div className="card__button">
+        <button onClick={buttonDispatch}>{buttonLabel}</button>
       </div>
-    </div>
+    </Container>
   );
 }
 
