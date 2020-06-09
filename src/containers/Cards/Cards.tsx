@@ -10,7 +10,7 @@ import { colors } from '../../utils/styles/helpers';
 
 import CardInterface from '../../components/Card';
 
-function Card() {
+function Cards() {
   const [desktopCardState, setDesktopCardState] = useState<boolean>(false);
   const [tabletCardState, setTabletCardState] = useState<boolean>(false);
   const [mobileCardState, setMobileCardState] = useState<boolean>(false);
@@ -98,4 +98,4 @@ function Card() {
   return <>{mapDispatchToCards}</>;
 }
 
-export default Card;
+export default Cards;
