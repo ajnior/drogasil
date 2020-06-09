@@ -9,7 +9,7 @@ The coding challenge was to build a responsive website similar to the given desi
 ![Design preview for the Drogasil coding challenge](./design/teste-raia-preview.jpg)
 
 ## Technologies
-The technologies that I have used in this project were: React, Typescript and Styled-Components with SASS and BEM methology.
+The technologies that I have used in this project were: React, Typescript and Styled-Components, SASS, and BEM methodology.
 
 I opted out on using the flux pattern, with Redux or Context API, due the simplicity of the state management.
 
