@@ -23,7 +23,6 @@ export const Container = styled.div`
       @media (max-width: ${screenSizes.tablet}) {
         padding: 2rem;
         max-width: 88%;
-        max-height: 65%;
       }
     }
     &__close-icon {
