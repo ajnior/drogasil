@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 import React, { useContext } from 'react';
 import Popup from '../Popup';
 
