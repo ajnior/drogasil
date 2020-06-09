@@ -2,8 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Drogasil FE Challenge
 
-### Introduction
+### Introduction 👋
 The coding challenge was to build a responsive website similar to the given design mainly with React and Style-Components.
+
+## Design!
 ![Design preview for the Drogasil coding challenge](./design/teste-raia-preview.jpg)
 
 ### Technologies
