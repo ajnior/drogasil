@@ -13,8 +13,6 @@ type ButtonColorScheme = {
 
 type Theme = 'light' | 'dark';
 
-type Dispatch = React.Dispatch<React.SetStateAction<boolean>>;
-
 type Props = {
   name: string;
   imageSrc: string;
