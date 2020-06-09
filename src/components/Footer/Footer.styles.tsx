@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { screenSizes } from '../../utils/styles/helpers';
+import { colors, screenSizes } from '../../utils/styles/helpers';
 
 export const Container = styled.footer`
   grid-column: 2 / 8;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: ${(props) => (props.theme == 'light' ? colors.rdGrey : 'white')};
 
   @media (max-width: ${screenSizes.tablet}) {
     flex-wrap: wrap;

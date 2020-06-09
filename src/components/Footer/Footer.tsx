@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../contexts/ThemeContext';
+
 import drogaRaiaLogo from '../../assets/images/logo_drogaraia.png';
 import drogasilLogo from '../../assets/images/logo_drogasil.png';
 import farmasilLogo from '../../assets/images/logo_farmasil.png';
@@ -9,8 +11,10 @@ import raiaDrogasilLogo from '../../assets/images/logo_small.png';
 import { Container } from './Footer.styles';
 
 function Footer() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <Container className="footer">
+    <Container theme={theme} className="footer">
       <div className="footer__paragraph-container">
         <p>RD 2017. Todos os direitos reservados</p>
       </div>
