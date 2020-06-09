@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../utils/styles/helpers';
+import { colors, screenSizes } from '../../utils/styles/helpers';
 
 export const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
@@ -20,6 +20,11 @@ export const Container = styled.div`
       background: ${(props) =>
         props.theme == 'light' ? 'white' : colors.rdDarkGray};
       padding: 4rem 3rem;
+      @media (max-width: ${screenSizes.tablet}) {
+        padding: 2rem;
+        max-width: 88%;
+        max-height: 65%;
+      }
     }
     &__close-icon {
       position: absolute;

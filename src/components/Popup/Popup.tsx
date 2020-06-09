@@ -15,10 +15,10 @@ function Popup({ content, close }: Props) {
   return (
     <Container theme={theme} className="popup">
       <div className="popup__content">
-        {content}
         <button className="popup__close-icon" onClick={close}>
           <img src={CloseIcon} alt="Close Icon" />
         </button>
+        {content}
       </div>
     </Container>
   );
