@@ -1,5 +1,9 @@
 /* eslint-disable eqeqeq */
-import React from 'react';
+import React, { useContext } from 'react';
+import Popup from '../Popup';
+
+import { ThemeContext } from '../../contexts/ThemeContext';
+
 import { Container } from './Card.styles';
 
 type ButtonColorScheme = {
@@ -12,6 +16,7 @@ type Theme = 'light' | 'dark';
 type Dispatch = React.Dispatch<React.SetStateAction<boolean>>;
 
 type Props = {
+  name: string;
   imageSrc: string;
   imageLabel: string;
   cardText: string;
@@ -19,9 +24,11 @@ type Props = {
   buttonColorScheme: ButtonColorScheme;
   buttonState: boolean | Theme;
   buttonDispatch(): void;
+  popupText?: string;
 };
 
 function Card({
+  name,
   imageSrc,
   imageLabel,
   cardText,
@@ -29,25 +36,35 @@ function Card({
   buttonColorScheme,
   buttonState,
   buttonDispatch,
+  popupText,
 }: Props) {
-  console.log(buttonColorScheme);
+  const { theme } = useContext(ThemeContext);
+  const renderPopup = name == 'tablet' && buttonState;
+  const content = popupText ? popupText : '';
+
   return (
-    <Container
-      className="card"
-      color={buttonColorScheme.color}
-      backgroundColor={buttonColorScheme.backgroundColor}
-    >
-      <div className="card__media">
-        <img src={imageSrc} alt="Card" />
-        <h3> {imageLabel}</h3>
-      </div>
-      <div className="card__text">
-        <p>{cardText}</p>
-      </div>
-      <div className="card__button">
-        <button onClick={buttonDispatch}>{buttonLabel}</button>
-      </div>
-    </Container>
+    <>
+      {renderPopup ? <Popup content={content} close={buttonDispatch} /> : null}
+      <Container
+        theme={theme}
+        name={name}
+        className="card"
+        color={buttonColorScheme.color}
+        backgroundColor={buttonColorScheme.backgroundColor}
+        overflowScroll={typeof buttonState == 'boolean' ? buttonState : false}
+      >
+        <div className="card__media">
+          <img src={imageSrc} alt="Card" />
+          <h3> {imageLabel}</h3>
+        </div>
+        <div className="card__text">
+          <p>{cardText}</p>
+        </div>
+        <div className="card__button">
+          <button onClick={buttonDispatch}>{buttonLabel}</button>
+        </div>
+      </Container>
+    </>
   );
 }
 

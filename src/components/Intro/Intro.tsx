@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../contexts/ThemeContext';
 import { Container } from './Intro.styles';
 
 function Intro() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <Container className="intro">
+    <Container theme={theme} className="intro">
       <h1>
         Crie este site <strong>responsivo</strong> com{' '}
         <strong className="intro__uppercase">React</strong> utilizando{' '}

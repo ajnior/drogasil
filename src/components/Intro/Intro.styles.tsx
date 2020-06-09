@@ -4,10 +4,10 @@ import { colors, shadows, screenSizes } from '../../utils/styles/helpers';
 export const Container = styled.div`
   grid-column: 1 / -1;
   text-align: center;
-  text-shadow: ${shadows.text};
+  text-shadow: ${(props) => (props.theme == 'light' ? shadows.text : 'none')};
   margin: 1rem 0;
   h1 {
-    color: ${colors.rdGreen};
+    color: ${(props) => (props.theme == 'light' ? colors.rdGreen : 'white')};
     max-width: 80%;
     line-height: 4rem;
     font-size: 3.2rem;
@@ -18,8 +18,8 @@ export const Container = styled.div`
     }
   }
   p {
-    color: ${colors.rdGrey};
-    max-width: 50%;
+    color: ${(props) => (props.theme == 'light' ? colors.rdGrey : 'white')};
+    max-width: 60%;
     margin: 0 auto;
     font-size: 1.6rem;
     line-height: 2.6rem;
@@ -31,14 +31,14 @@ export const Container = styled.div`
   ul {
     display: flex;
     justify-content: center;
-    max-width: 60%;
+    max-width: 90%;
     margin: 1rem auto;
     @media (max-width: ${screenSizes.tablet}) {
       flex-wrap: wrap;
     }
   }
   li {
-    color: ${colors.rdGrey};
+    color: ${(props) => (props.theme == 'light' ? colors.rdGrey : 'white')};
     display: flex;
     align-items: center;
     font-size: 1.4rem;

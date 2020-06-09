@@ -26,9 +26,10 @@ export const Container = styled.header`
     &__nav-container ul li {
       font-size: 1.25rem;
       margin-left: 1.6rem;
-      color: ${colors.rdGreen};
+      color: ${(props) => (props.theme == 'light' ? colors.rdGreen : 'white')};
       text-transform: uppercase;
-      text-shadow: ${shadows.text};
+      text-shadow: ${(props) =>
+        props.theme == 'light' ? shadows.text : 'none'};
       @media (max-width: ${screenSizes.desktop}) {
         color: ${colors.white};
         padding: 0.8rem 0;

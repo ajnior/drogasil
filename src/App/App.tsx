@@ -6,18 +6,17 @@ import Main from '../components/Main';
 import Intro from '../components/Intro';
 import Cards from '../containers/Cards/Cards';
 
-// Base Styles
-import '../utils/styles/base.css';
+// Fonts
+import '../utils/styles/fonts.css';
 
-import { Container } from './App.styles';
+import { Container, GlobalStyle } from './App.styles';
 
 function App() {
   const { theme } = useContext(ThemeContext);
 
-  console.log('theme:::', theme);
-
   return (
-    <Container className="App">
+    <Container theme={theme} className="App">
+      <GlobalStyle />
       <Header />
       <Main>
         <>

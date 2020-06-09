@@ -1,15 +1,20 @@
+/* eslint-disable eqeqeq */
 import styled from 'styled-components';
+import { colors } from '../../utils/styles/helpers';
 
 interface Props {
+  readonly name: string;
   readonly color: string;
   readonly backgroundColor: string;
+  readonly overflowScroll?: boolean;
 }
 
 export const Container = styled.div<Props>`
   grid-column: span 2;
   display: flex;
   flex-wrap: wrap;
-  background: white;
+  background: ${(props) =>
+    props.theme == 'light' ? 'white' : colors.rdDarkGray};
   max-width: 365px;
   @media (max-width: 768px) {
     grid-column: 1 /-1;
@@ -27,7 +32,8 @@ export const Container = styled.div<Props>`
         font-size: 1.6rem;
         max-width: 80%;
         margin: 2rem 0 0;
-        color: ${(props) => props.color};
+        color: ${(props) =>
+          props.theme == 'light' ? 'white' : colors.rdDarkGray};
       }
       img {
         max-width: 80%;
@@ -37,8 +43,18 @@ export const Container = styled.div<Props>`
     &__text {
       justify-content: center;
       padding: 1rem;
-      background: white;
       text-align: left;
+      p {
+        color: ${(props) =>
+          props.theme == 'light' ? colors.rdDarkGray : 'white'};
+        max-height: ${(props) => (props.name == 'desktop' ? '68px' : 'auto')};
+        max-height: ${(props) =>
+          props.name == 'desktop' && props.overflowScroll ? '100px' : 'auto'};
+        overflow: ${(props) =>
+          props.name == 'desktop' && props.overflowScroll
+            ? 'scroll'
+            : 'hidden'};
+      }
     }
     &__button {
       display: flex;
@@ -49,7 +65,8 @@ export const Container = styled.div<Props>`
         border: none;
         padding: 0.5rem 1.2rem;
         font-size: 1rem;
-        color: ${(props) => props.color};
+        color: ${(props) =>
+          props.theme == 'light' ? 'white' : colors.rdDarkGray};
         background: ${(props) => props.backgroundColor};
       }
     }

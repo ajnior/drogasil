@@ -1,5 +1,6 @@
 {
   "name": "drogasil",
+  "author": "ajnior",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -37,5 +38,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4"
   }
 }
